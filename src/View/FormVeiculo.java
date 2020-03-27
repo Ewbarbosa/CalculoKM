@@ -138,6 +138,11 @@ public class FormVeiculo extends javax.swing.JFrame {
         });
 
         txtProprietario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtProprietario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtProprietarioKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout paneVeiculo1Layout = new javax.swing.GroupLayout(paneVeiculo1);
         paneVeiculo1.setLayout(paneVeiculo1Layout);
@@ -553,7 +558,7 @@ public class FormVeiculo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                .addComponent(panelVeiculo)
                 .addContainerGap())
         );
 
@@ -761,6 +766,12 @@ public class FormVeiculo extends javax.swing.JFrame {
             btSalvar.requestFocus();
         }
     }//GEN-LAST:event_txtMedLitroKeyPressed
+
+    private void txtProprietarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProprietarioKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btAvancar.requestFocus();
+        }
+    }//GEN-LAST:event_txtProprietarioKeyPressed
         
     
     /**
