@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package View; //alterado na web
+//alterado no netbeans
 
 import Control.Conexao;
 import java.awt.event.KeyEvent;
