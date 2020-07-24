@@ -181,7 +181,6 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
-    
     /**
      * @param args the command line arguments
      */

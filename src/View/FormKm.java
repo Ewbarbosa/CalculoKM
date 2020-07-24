@@ -23,12 +23,7 @@ public class FormKm extends javax.swing.JFrame {
         initComponents();
         
         txtDataKm.requestFocus();
-        conecta.conectabanco();
-        
-            //SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");  
-            //Date data = new Date();                        
-            //txtDataKm.setDate(data);
-            //System.out.println(formater.format(date));                
+        conecta.conectabanco();             
         
         preencherTabela("select * from quilometragem");
         
@@ -815,7 +810,6 @@ public class FormKm extends javax.swing.JFrame {
         } catch (SQLException ex) {
             //JOptionPane.showMessageDialog(null, "Erro: \n" +ex);
         }
-        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

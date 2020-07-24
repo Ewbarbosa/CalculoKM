@@ -737,7 +737,6 @@ public class FormVeiculo extends javax.swing.JFrame {
             txtPlaca2.setText(txtPlaca.getText());
             txtPlaca3.setText(txtPlaca.getText());
             }
-            
                
     }//GEN-LAST:event_btAvancarActionPerformed
 
