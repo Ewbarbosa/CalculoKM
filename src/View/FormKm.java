@@ -58,8 +58,6 @@ public class FormKm extends javax.swing.JFrame {
         txtKmRodados = new javax.swing.JFormattedTextField();
         txtDataKm = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tableSoma = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -88,10 +86,14 @@ public class FormKm extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         txtRevisaoKm = new javax.swing.JTextField();
+        txtSomaRevisao = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         comboPlacaSoma = new javax.swing.JComboBox();
         jLabel18 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        txtSomaGeral = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        txtSomaKm = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(getIconImage());
@@ -276,19 +278,6 @@ public class FormKm extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Quilometragem", jPanel1);
 
-        tableSoma.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane3.setViewportView(tableSoma);
-
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
@@ -302,13 +291,10 @@ public class FormKm extends javax.swing.JFrame {
         jLabel7.setText("Soma dos dias");
 
         txtQtdDias.setEditable(false);
-        txtQtdDias.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         txtValorDia.setEditable(false);
-        txtValorDia.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         txtSomaDia.setEditable(false);
-        txtSomaDia.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -365,7 +351,6 @@ public class FormKm extends javax.swing.JFrame {
         txtMedKm.setEditable(false);
 
         txtSomaCombustivel.setEditable(false);
-        txtSomaCombustivel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -492,6 +477,13 @@ public class FormKm extends javax.swing.JFrame {
         jLabel16.setText("Soma da Revisão");
 
         txtRevisaoKm.setEditable(false);
+        txtRevisaoKm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRevisaoKmActionPerformed(evt);
+            }
+        });
+
+        txtSomaRevisao.setEditable(false);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -502,7 +494,8 @@ public class FormKm extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
                     .addComponent(jLabel15)
-                    .addComponent(txtRevisaoKm, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRevisaoKm, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSomaRevisao, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -514,11 +507,13 @@ public class FormKm extends javax.swing.JFrame {
                 .addComponent(txtRevisaoKm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
                 .addComponent(jLabel16)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSomaRevisao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         jLabel17.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel17.setText("Total dos Itens");
+        jLabel17.setText("Soma Geral");
 
         comboPlacaSoma.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         comboPlacaSoma.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione" }));
@@ -532,12 +527,21 @@ public class FormKm extends javax.swing.JFrame {
         jLabel18.setText("Selecione o veículo:");
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton1.setText("Consultar");
+        jButton1.setText("Calcular");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        txtSomaGeral.setEditable(false);
+        txtSomaGeral.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        jLabel19.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel19.setText("Total de Km rodado");
+
+        txtSomaKm.setEditable(false);
+        txtSomaKm.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -546,28 +550,28 @@ public class FormKm extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)
-                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel17)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboPlacaSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55)
-                                .addComponent(jButton1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboPlacaSoma, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel19)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtSomaKm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                        .addComponent(txtSomaGeral, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -577,7 +581,7 @@ public class FormKm extends javax.swing.JFrame {
                     .addComponent(comboPlacaSoma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -585,11 +589,15 @@ public class FormKm extends javax.swing.JFrame {
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSomaKm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel17)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSomaGeral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(194, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Soma", jPanel2);
@@ -607,7 +615,7 @@ public class FormKm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 673, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -764,15 +772,15 @@ public class FormKm extends javax.swing.JFrame {
             conecta.rs.first();
             txtMedKm.setText(String.valueOf(conecta.rs.getDouble("medkml")));
             
-            conecta.executaSQL("select oleo/2000 from dados_veiculo where placa ='"+comboPlacaSoma.getSelectedItem()+"'");
+            conecta.executaSQL("select (valor_oleo/km_oleo) from dados_veiculo where placa ='"+comboPlacaSoma.getSelectedItem()+"'");
             conecta.rs.first();
             txtOleoKm.setText(String.valueOf(conecta.rs.getDouble("divide")));
             
-            conecta.executaSQL("select pneu/10000 from dados_veiculo where placa ='"+comboPlacaSoma.getSelectedItem()+"'");
+            conecta.executaSQL("select (valor_pneu/km_pneu) from dados_veiculo where placa ='"+comboPlacaSoma.getSelectedItem()+"'");
             conecta.rs.first();
             txtPneuKm.setText(String.valueOf(conecta.rs.getDouble("divide")));
             
-            conecta.executaSQL("select revisao/30000 from dados_veiculo where placa ='"+comboPlacaSoma.getSelectedItem()+"'");
+            conecta.executaSQL("select (valor_revisao/km_revisao) from dados_veiculo where placa ='"+comboPlacaSoma.getSelectedItem()+"'");
             conecta.rs.first();
             txtRevisaoKm.setText(String.valueOf(conecta.rs.getDouble("divide")));
             
@@ -794,6 +802,15 @@ public class FormKm extends javax.swing.JFrame {
             conecta.rs.first();
             txtSomaPneu.setText(String.valueOf(conecta.rs.getDouble("valor")));
             
+            conecta.executaSQL("select * from soma_revisao('"+comboPlacaSoma.getSelectedItem()+"')");
+            conecta.rs.first();
+            txtSomaRevisao.setText(String.valueOf(conecta.rs.getDouble("valor")));
+            
+            conecta.executaSQL("select sum(kmrodado) as valor from quilometragem where placa = '"+comboPlacaSoma.getSelectedItem()+"'");
+            conecta.rs.first();
+            txtSomaKm.setText(String.valueOf(conecta.rs.getDouble("valor")));
+            
+            
             
         } catch (SQLException ex) {
             //JOptionPane.showMessageDialog(null, "Erro: \n" +ex);
@@ -801,6 +818,10 @@ public class FormKm extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtRevisaoKmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRevisaoKmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRevisaoKmActionPerformed
         
    public void preencherCombo (String SQL){ // Método que preenche comboPlaca
             conecta.executaSQL(SQL);
@@ -921,6 +942,7 @@ public class FormKm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -938,10 +960,8 @@ public class FormKm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tableKm;
-    private javax.swing.JTable tableSoma;
     private javax.swing.JTextField txtComb;
     private com.toedter.calendar.JDateChooser txtDataKm;
     private javax.swing.JFormattedTextField txtKmRodados;
@@ -953,8 +973,11 @@ public class FormKm extends javax.swing.JFrame {
     private javax.swing.JTextField txtRevisaoKm;
     private javax.swing.JTextField txtSomaCombustivel;
     private javax.swing.JTextField txtSomaDia;
+    private javax.swing.JTextField txtSomaGeral;
+    private javax.swing.JTextField txtSomaKm;
     private javax.swing.JTextField txtSomaOleo;
     private javax.swing.JTextField txtSomaPneu;
+    private javax.swing.JTextField txtSomaRevisao;
     private javax.swing.JTextField txtValorDia;
     // End of variables declaration//GEN-END:variables
 }

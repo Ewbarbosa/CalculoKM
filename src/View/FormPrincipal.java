@@ -108,7 +108,7 @@ public class FormPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null,"Versão 0.2.1", "Sobre o Software", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Versão BETA", "Sobre o Software", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
