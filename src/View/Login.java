@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package View; //alterado na web
 
 import Control.Conexao;
 import java.awt.event.KeyEvent;
@@ -52,7 +52,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("Bem Vindo!");
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel2.setText("Usu·rio");
+        jLabel2.setText("Usu√°rio");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Senha");
@@ -145,7 +145,7 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        efetuaLogin();  // metodo onde est· toda a validaÁ„o de usuario e senha       
+        efetuaLogin();  // metodo onde est√° toda a valida√ß√£o de usuario e senha       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
@@ -167,17 +167,17 @@ public class Login extends javax.swing.JFrame {
     public void efetuaLogin (){
         try {
             con.executaSQL("select * from usuarios where usuario ='"+txtUsuario.getText()+"' and senha ='"+txtSenha.getText()+"'");
-            con.rs.first(); // o usuario encontrado È salvo dentro do RESULTSET "rs"
+            con.rs.first(); // o usuario encontrado √© salvo dentro do RESULTSET "rs"
             if (txtUsuario.getText().equals(con.rs.getString("usuario")) && (txtSenha.getText().equals(con.rs.getString("senha"))))
-            { // aqui s„o comparados os valores dos campos com o bando de dados, se estiver correto executa a funÁ„o abaixo
+            { // aqui s√£o comparados os valores dos campos com o bando de dados, se estiver correto executa a fun√ß√£o abaixo
                 FormPrincipal obj = new FormPrincipal();
                 obj.setVisible(true);
                 this.dispose();
             } 
                 
         } catch (SQLException ex) {
-            // caso nao seja encontrado o usuario ele exibir· a mensagem abaixo
-            JOptionPane.showMessageDialog(null, "Usu√°rio e/ou senha incorretos!");
+            // caso nao seja encontrado o usuario ele exibir√° a mensagem abaixo
+            JOptionPane.showMessageDialog(null, "Usu√É¬°rio e/ou senha incorretos!");
         }
     }
     
