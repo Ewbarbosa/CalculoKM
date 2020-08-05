@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Usuario
+ * @author Ewerton
  */
 public class Login extends javax.swing.JFrame {
     Conexao con = new Conexao();
