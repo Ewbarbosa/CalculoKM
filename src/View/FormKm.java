@@ -750,7 +750,7 @@ public class FormKm extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         try { // aqui carrega os dados do banco para os campos de texto
-            conecta.executaSQL("select combustivel from dados_veiculo");
+            conecta.executaSQL("select combustivel from dados_veiculo where placa ='"+comboPlacaSoma.getSelectedItem()+"'");
             conecta.rs.first();
             txtComb.setText(String.valueOf(conecta.rs.getDouble("combustivel"))); 
             
@@ -781,30 +781,19 @@ public class FormKm extends javax.swing.JFrame {
             
             
             // aqui faz a soma
-            conecta.executaSQL("select * from soma_dia('"+comboPlacaSoma.getSelectedItem()+"')");
+                       
+            conecta.executaSQL("select * from soma_geral('"+comboPlacaSoma.getSelectedItem()+"')");
             conecta.rs.first();
-            txtSomaDia.setText(String.valueOf(conecta.rs.getDouble("valor")));
-            
-            conecta.executaSQL("select * from soma_combustivel('"+comboPlacaSoma.getSelectedItem()+"')");
-            conecta.rs.first();
-            txtSomaCombustivel.setText(String.valueOf(conecta.rs.getDouble("valor")));
-            
-            conecta.executaSQL("select * from soma_oleo('"+comboPlacaSoma.getSelectedItem()+"')");
-            conecta.rs.first();
-            txtSomaOleo.setText(String.valueOf(conecta.rs.getDouble("valor")));
-            
-            conecta.executaSQL("select * from soma_pneu('"+comboPlacaSoma.getSelectedItem()+"')");
-            conecta.rs.first();
-            txtSomaPneu.setText(String.valueOf(conecta.rs.getDouble("valor")));
-            
-            conecta.executaSQL("select * from soma_revisao('"+comboPlacaSoma.getSelectedItem()+"')");
-            conecta.rs.first();
-            txtSomaRevisao.setText(String.valueOf(conecta.rs.getDouble("valor")));
+            txtSomaDia.setText(String.valueOf(conecta.rs.getDouble("dia")));
+            txtSomaCombustivel.setText(String.valueOf(conecta.rs.getDouble("combustivel")));
+            txtSomaOleo.setText(String.valueOf(conecta.rs.getDouble("oleo")));
+            txtSomaPneu.setText(String.valueOf(conecta.rs.getDouble("pneu")));
+            txtSomaRevisao.setText(String.valueOf(conecta.rs.getDouble("revisao")));
+            txtSomaGeral.setText(String.valueOf(conecta.rs.getDouble("soma")));
             
             conecta.executaSQL("select sum(kmrodado) as valor from quilometragem where placa = '"+comboPlacaSoma.getSelectedItem()+"'");
             conecta.rs.first();
             txtSomaKm.setText(String.valueOf(conecta.rs.getDouble("valor")));
-            
             
             
         } catch (SQLException ex) {
