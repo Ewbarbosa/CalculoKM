@@ -14,10 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Usuario
- */
+
 public class Conexao {
     public Statement stm = null; // prepara e realiza pesquisas no banco
     public ResultSet rs = null; // armazena o resultado de uma pesquisa passada para o Statement
